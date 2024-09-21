@@ -22,14 +22,14 @@ export const Config: Schema<Config> = Schema.object({
 
 declare module 'koishi' {
 	interface Context {
-		canvas: typeof obj_canvas
+		QhzyCanvas: typeof obj_canvas
 	}
 }
 
 export class QhzyCanvas extends Service {
 
 	constructor(ctx: Context, config: Config) {
-		super(ctx, 'canvas')
+		super(ctx, 'QhzyCanvas')
 		this.config = {
 			...config
 		}
@@ -38,7 +38,7 @@ export class QhzyCanvas extends Service {
 	protected async start() {
 		await this.ctx.node.safeImport<typeof obj_canvas>('canvas')
 			.then(obj_canvas => {
-				this.ctx.canvas = obj_canvas
+				this.ctx.QhzyCanvas = obj_canvas
 			})
 			.catch(e => {
 				this.ctx.logger.info(`加载 canvas 失败: ${e}`)
