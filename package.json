@@ -1,22 +1,31 @@
 {
-  "name": "@quanhuzeyu/koishi-plugin-canvas",
-  "description": "canvas服务",
-  "version": "0.0.1",
-  "main": "lib/index.js",
-  "typings": "lib/index.d.ts",
-  "files": [
-    "lib",
-    "dist"
-  ],
-  "license": "MIT",
-  "scripts": {},
-  "keywords": [
-    "chatbot",
-    "koishi",
-    "plugin"
-  ],
-  "devDependencies": {},
-  "peerDependencies": {
-    "koishi": "^4.17.11"
-  }
+	"name": "@quanhuzeyu/koishi-plugin-canvas",
+	"description": "canvas服务",
+	"version": "0.0.1",
+	"main": "lib/index.js",
+	"typings": "lib/index.d.ts",
+	"files": [
+		"lib",
+		"dist"
+	],
+	"license": "MIT",
+	"scripts": {
+		"build": "node build.js",
+		"clean": "node clean.js",
+		"allpub": "npm run build && npm run pubgit && npm run pubnpm",
+		"pubgit": "npm publish --registry=https://npm.pkg.github.com --access=public",
+		"pubnpm": "npm publish --registry=https://registry.npmjs.org --access=public",
+		"cacheclean": "npm cache clean --force"
+	},
+	"keywords": [
+		"chatbot",
+		"koishi",
+		"plugin"
+	],
+	"devDependencies": {
+		"canvas": "^2.11.2"
+	},
+	"peerDependencies": {
+		"koishi": "^4.17.11"
+	}
 }
